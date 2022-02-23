@@ -24,11 +24,17 @@ public class Grabbing : MonoBehaviour
         {
             if (Physics.Raycast(transform.position, transform.forward, out hit, 5f, ~(1 << 8)))
             {
-                if (hit.collider.gameObject && grabObj == false)
+                Transform hitObjectTransform = hit.collider.gameObject.transform;
+                
+                if (hitObjectTransform.tag == "Grabbable" && grabObj == false)
                 {
                     hitObj = hit.collider.gameObject;
                     hitObj.GetComponent<Rigidbody>().isKinematic = true;
                     grabObj = true;
+                }
+                if(hitObjectTransform.tag == "Clickable")
+                {
+                    hitObjectTransform.gameObject.GetComponent<WorldButton>().OnClick();
                 }
             }
             if (grabObj && hitObj != null)
