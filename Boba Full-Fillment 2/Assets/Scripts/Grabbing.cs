@@ -20,7 +20,7 @@ public class Grabbing : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Mouse.current.leftButton.isPressed)
+        if (Keyboard.current.fKey.isPressed)
         {
             if (Physics.Raycast(transform.position, transform.forward, out hit, 5f, ~(1 << 8)))
             {
