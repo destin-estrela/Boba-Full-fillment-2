@@ -32,7 +32,7 @@ public class Grabbing : MonoBehaviour
                     hitObj.GetComponent<Rigidbody>().isKinematic = true;
                     grabObj = true;
                 }
-                if(hitObjectTransform.tag == "Clickable")
+                if(!grabObj && hitObjectTransform.tag == "Clickable")
                 {
                     hitObjectTransform.gameObject.GetComponent<WorldButton>().OnClick();
                 }
@@ -41,6 +41,16 @@ public class Grabbing : MonoBehaviour
             {
                 //Moving object with player, 2 units in front of him cause we want to see it.
                 hitObj.transform.position = grabPoint.position;
+                hitObj.transform.rotation = Quaternion.Euler(new Vector3(0, transform.rotation.y, transform.rotation.z));
+                if(Keyboard.current.spaceKey.wasPressedThisFrame)
+                {
+                    ActionableObject attribute = hitObj.GetComponent<ActionableObject>();
+
+                    if(attribute != null)
+                    {
+                        attribute.UseItem();
+                    }
+                }
             }
         }
         else

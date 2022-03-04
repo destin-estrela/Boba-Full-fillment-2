@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Tags : MonoBehaviour
 {
+    public string customTag;
     // Start is called before the first frame update
     void Start()
     {

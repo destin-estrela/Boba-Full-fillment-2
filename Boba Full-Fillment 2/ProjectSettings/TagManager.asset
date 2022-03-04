@@ -9,6 +9,7 @@ TagManager:
   - Clickable
   - Tea
   - Topping
+  - MilkFlow
   layers:
   - Default
   - TransparentFX

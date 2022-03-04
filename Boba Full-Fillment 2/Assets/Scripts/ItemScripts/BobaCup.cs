@@ -8,6 +8,10 @@ public class BobaCup : MonoBehaviour
     public Animation teaAnimation;
     public GameObject topping;
     public GameObject straw;
+
+    public bool milkPoured = false;
+    public bool teaPoured = false;
+    public Material milkyTea;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,15 +24,42 @@ public class BobaCup : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void OnTriggerEnter(Collider other)
+    {
+        HandleMilk(other);
+        HandleTea(other);
+    }
+
+    public void HandleMilk(Collider other)
+    {
+        if (other.tag == "MilkFlow")
+        {
+            tea.SetActive(true);
+            milkPoured = true;
+            if (!teaPoured)
+            {
+                tea.GetComponent<MeshRenderer>().material = other.GetComponent<MeshRenderer>().material;
+            }
+            else
+            {
+                tea.GetComponent<MeshRenderer>().material = milkyTea;
+            }
+        }
+    }
+
+    public void HandleTea(Collider other)
     {
         if (other.tag == "Tea")
         {
-            if(!tea.activeInHierarchy)
+            tea.SetActive(true);
+            teaPoured = true;
+            if (!milkPoured)
             {
                 tea.GetComponent<MeshRenderer>().material = other.GetComponent<MeshRenderer>().material;
-                tea.SetActive(true);
-                teaAnimation.Play();
+            }
+            else
+            {
+                tea.GetComponent<MeshRenderer>().material = milkyTea;
             }
         }
     }
