@@ -14,11 +14,12 @@ public class BobaCup : MonoBehaviour
     public Material milkyTea;
 
     public string teaType;
-    public List<string> toppings;
+    public string toppingType;
+    public int sweetness = 0;
+    public int iceLevel = 0; 
     // Start is called before the first frame update
     void Start()
     {
-        toppings = new List<string>(5);
     }
 
     // Update is called once per frame
@@ -31,6 +32,15 @@ public class BobaCup : MonoBehaviour
     {
         HandleMilk(other);
         HandleTea(other);
+        HandleSubmission(other);
+    }
+
+    public void HandleSubmission(Collider other)
+    {
+        if (other.tag == "Submission")
+        {
+            other.GetComponent<FulfillmentBox>().SubmitOrder(this);
+        }
     }
 
     public void HandleMilk(Collider other)
@@ -58,7 +68,7 @@ public class BobaCup : MonoBehaviour
             teaPoured = true;
 
             // get the string indicating tea type from the tea flow game object
-            teaType = tea.GetComponent<DetailedTag>().customTag;
+            teaType = other.GetComponent<DetailedTag>().customTag;
             if (!milkPoured)
             {
                 tea.GetComponent<MeshRenderer>().material = other.GetComponent<MeshRenderer>().material;
@@ -77,11 +87,7 @@ public class BobaCup : MonoBehaviour
         {
             if (collisionObj.GetComponent<Topping>() != null && !topping.activeInHierarchy) {
                 
-                string toppingType = tea.GetComponent<DetailedTag>().customTag;
-                if(toppings.Contains(toppingType))
-                {
-                    toppings.Add(toppingType);
-                }
+               toppingType = collision.gameObject.GetComponent<DetailedTag>().customTag;
                 TransferMaterialToCup(collisionObj, topping);
             }
 

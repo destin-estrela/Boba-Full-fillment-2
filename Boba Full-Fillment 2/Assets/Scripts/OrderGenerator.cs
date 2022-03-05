@@ -18,7 +18,6 @@ public class OrderGenerator : MonoBehaviour
     void Start()
     {
         activeOrders = new List<Order>(10);
-        currTime = timeBetweenCustomerOrders;
     }
 
     // Update is called once per frame
@@ -60,6 +59,11 @@ public class OrderGenerator : MonoBehaviour
 
     void CreateFoodOrder()
     {
+        if(foodItems.Length < 1)
+        {
+            Debug.Log("No food items");
+            return;
+        }
         string foodType = foodItems[Random.Range(0, foodItems.Length)];
         activeOrders.Add(new FoodOrder(currOrderId++, foodType));
     }
@@ -71,16 +75,16 @@ public class DrinkOrder : Order
 {
     public string topping;
     public string tea;
-    int sweetness; // 0 through 4
-    int ice; // 0 through 4
-    bool withMilk;
+    public int sweetness; // 0 through 4
+    public int ice; // 0 through 4
+    public bool withMilk;
     public DrinkOrder(int orderId, string tea, string topping, bool withMilk) : base(orderId)
     {
         this.withMilk = withMilk;
         this.tea = tea;
         this.topping = topping;
-        ice = Random.Range(0, 5);
-        sweetness = Random.Range(0, 5);
+        ice = Random.Range(0, 1);
+        sweetness = Random.Range(0, 1);
         this.displayName = $"{tea}{(withMilk ? " Milk" : "")} Tea with {topping}, {ice * 25}% Ice, {sweetness * 25}% Sweetness";
     }
 }

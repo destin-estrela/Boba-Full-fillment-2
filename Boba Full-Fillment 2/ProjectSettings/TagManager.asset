@@ -10,6 +10,7 @@ TagManager:
   - Tea
   - Topping
   - MilkFlow
+  - Submission
   layers:
   - Default
   - TransparentFX
