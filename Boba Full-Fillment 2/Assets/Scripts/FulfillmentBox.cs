@@ -6,6 +6,7 @@ using TMPro;
 
 public class FulfillmentBox : MonoBehaviour
 {
+    ScoreKeeper scoreKeeper;
     Order currentOrder;
     public TextMeshProUGUI orderNumberText;
     OrderGenerator orderGenerator;
@@ -13,6 +14,7 @@ public class FulfillmentBox : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        scoreKeeper = FindObjectOfType<ScoreKeeper>();
         orderGenerator = FindObjectOfType<OrderGenerator>();
     }
 
@@ -42,6 +44,7 @@ public class FulfillmentBox : MonoBehaviour
     {
        if(DrinkOrderIsCorrect(bobaCup, currentOrder))
         {
+            scoreKeeper.cashEarned += currentOrder.value;
             orderGenerator.activeOrders.RemoveAt(currOrderIndex);
             Destroy(bobaCup.gameObject);
             Debug.Log("Order successfully fulfilled!");

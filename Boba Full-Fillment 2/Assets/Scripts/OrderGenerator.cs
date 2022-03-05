@@ -2,6 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+public class FoodMenuItem
+{
+    public string food;
+    public int price;
+}
 public class OrderGenerator : MonoBehaviour
 {
     public static int MaxOrderItems = 6;
@@ -10,7 +16,7 @@ public class OrderGenerator : MonoBehaviour
     public float timeBetweenCustomerOrders;
     public string[] toppings;
     public string[] drinkFlavors;
-    public string[] foodItems;
+    public FoodMenuItem[] foodItems;
     int currOrderId = 0;
 
     public List<Order> activeOrders;
@@ -51,21 +57,27 @@ public class OrderGenerator : MonoBehaviour
 
     void CreateDrinkOrder()
     {
+        // randomly choose a drink flavor and a topping
+        // also calculate the price 
+        int value = 3;
         string tea = drinkFlavors[Random.Range(0, drinkFlavors.Length)];
         string topping = toppings[Random.Range(0, toppings.Length)];
         bool withMilk = Random.value > .5f;
-        activeOrders.Add(new DrinkOrder(currOrderId++, tea, topping, withMilk));
+        value += withMilk ? 1 : 0; // milk adds 1$
+        value += topping != "" ? 1 : 0; // a topping adds 1$;
+        activeOrders.Add(new DrinkOrder(currOrderId++, tea, topping, withMilk, value));
     }
 
     void CreateFoodOrder()
     {
+        
         if(foodItems.Length < 1)
         {
             Debug.Log("No food items");
             return;
         }
-        string foodType = foodItems[Random.Range(0, foodItems.Length)];
-        activeOrders.Add(new FoodOrder(currOrderId++, foodType));
+        var foodMenuItem = foodItems[Random.Range(0, foodItems.Length)];
+        activeOrders.Add(new FoodOrder(currOrderId++, foodMenuItem.food, foodMenuItem.price));
     }
 
 
@@ -78,14 +90,16 @@ public class DrinkOrder : Order
     public int sweetness; // 0 through 4
     public int ice; // 0 through 4
     public bool withMilk;
-    public DrinkOrder(int orderId, string tea, string topping, bool withMilk) : base(orderId)
+    public DrinkOrder(int orderId, string tea, string topping, bool withMilk, int value) : base(orderId, value)
     {
         this.withMilk = withMilk;
         this.tea = tea;
         this.topping = topping;
+
+        // randomly determine ice and sweetness
         ice = Random.Range(0, 1);
         sweetness = Random.Range(0, 1);
-        this.displayName = $"{tea}{(withMilk ? " Milk" : "")} Tea with {topping}, {ice * 25}% Ice, {sweetness * 25}% Sweetness";
+        this.displayName = $"{tea}{(withMilk ? " Milk" : "")} Tea{(topping != "" ? " with " : "")}{topping}, {ice * 25}% Ice, {sweetness * 25}% Sweetness";
     }
 }
 
@@ -95,19 +109,22 @@ public abstract class Order
     public float timeLimit;
     public float timeRemaining;
     public string displayName;
+    public int value;
 
-    public Order(int orderId)
+    public Order(int orderId, int value)
     {
+        // determine random time limit 
         timeLimit = Random.Range(15, 45);
         timeRemaining = timeLimit;
         this.orderId = orderId;
+        this.value = value; 
     }
 }
 
 public class FoodOrder : Order
 {
     public string foodType;
-    public FoodOrder(int orderId, string foodType) : base(orderId)
+    public FoodOrder(int orderId, string foodType, int value) : base(orderId, value)
     {
         this.foodType = foodType;
         this.displayName = foodType;

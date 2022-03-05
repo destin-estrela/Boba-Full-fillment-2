@@ -14,7 +14,7 @@ public class BobaCup : MonoBehaviour
     public Material milkyTea;
 
     public string teaType;
-    public string toppingType;
+    public string toppingType = ""; // empty string denotes no toppingS
     public int sweetness = 0;
     public int iceLevel = 0; 
     // Start is called before the first frame update
