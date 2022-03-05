@@ -11,6 +11,8 @@ TagManager:
   - Topping
   - MilkFlow
   - Submission
+  - IceRefill
+  - IceCube
   layers:
   - Default
   - TransparentFX

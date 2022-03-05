@@ -60,7 +60,11 @@ public class Grabbing : MonoBehaviour
         {
             if(hitObj != null)
             {
-                hitObj.GetComponent<Rigidbody>().isKinematic = false;
+                var rigid = hitObj.GetComponent<Rigidbody>();
+                if(rigid != null)
+                {
+                    rigid.isKinematic = false;
+                }
             }
             grabObj = false;
         }

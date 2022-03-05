@@ -97,7 +97,7 @@ public class DrinkOrder : Order
         this.topping = topping;
 
         // randomly determine ice and sweetness
-        ice = Random.Range(0, 1);
+        ice = Random.Range(0, 5);
         sweetness = Random.Range(0, 1);
         this.displayName = $"{tea}{(withMilk ? " Milk" : "")} Tea{(topping != "" ? " with " : "")}{topping}, {ice * 25}% Ice, {sweetness * 25}% Sweetness";
     }
@@ -114,7 +114,7 @@ public abstract class Order
     public Order(int orderId, int value)
     {
         // determine random time limit 
-        timeLimit = Random.Range(15, 45);
+        timeLimit = Random.Range(30, 60);
         timeRemaining = timeLimit;
         this.orderId = orderId;
         this.value = value; 

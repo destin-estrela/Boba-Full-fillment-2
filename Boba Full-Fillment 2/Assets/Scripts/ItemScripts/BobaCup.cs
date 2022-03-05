@@ -9,6 +9,8 @@ public class BobaCup : MonoBehaviour
     public GameObject topping;
     public GameObject straw;
 
+    public GameObject[] ice;
+
     public bool milkPoured = false;
     public bool teaPoured = false;
     public Material milkyTea;
@@ -33,6 +35,17 @@ public class BobaCup : MonoBehaviour
         HandleMilk(other);
         HandleTea(other);
         HandleSubmission(other);
+        HandleIce(other);
+    }
+
+    public void HandleIce(Collider other)
+    {
+        if (other.tag == "IceCube" && iceLevel < ice.Length)
+        {
+            ice[iceLevel].SetActive(true);
+            iceLevel++;
+            Destroy(other.gameObject);
+        }
     }
 
     public void HandleSubmission(Collider other)
