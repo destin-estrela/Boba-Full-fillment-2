@@ -1068,6 +1068,64 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 1.5160352, y: 0, z: 0}
+--- !u!1 &665546477
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 665546479}
+  - component: {fileID: 665546478}
+  m_Layer: 0
+  m_Name: SCRIPTS
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &665546478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 665546477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1808e4e3ed3aadf43b2bd844abfc54dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeBetweenCustomerOrders: 5
+  toppings:
+  - Tapioca
+  - Lychee
+  - Pudding
+  - Coffee Jelly
+  drinkFlavors:
+  - Black
+  - Green
+  - White
+  - Oolong
+  foodItems:
+  - Chocolate Ice Cream
+  - Crepe
+  - Popcorn Chicken
+--- !u!4 &665546479
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 665546477}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.9662583, y: -0.39149213, z: -5.367859}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 26
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &702794278
 GameObject:
   m_ObjectHideFlags: 0
@@ -1080,7 +1138,7 @@ GameObject:
   - component: {fileID: 702794281}
   - component: {fileID: 702794280}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Crosshair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1665,6 +1723,7 @@ GameObject:
   - component: {fileID: 855095253}
   - component: {fileID: 855095252}
   - component: {fileID: 855095251}
+  - component: {fileID: 855095257}
   m_Layer: 0
   m_Name: TapiocaBall (2)
   m_TagString: Grabbable
@@ -1776,6 +1835,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &855095257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 855095250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4233aa4b766e95489fd122de4836ca7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  customTag: Tapioca
 --- !u!1 &924437893
 GameObject:
   m_ObjectHideFlags: 0
@@ -1883,6 +1955,7 @@ GameObject:
   - component: {fileID: 946955856}
   - component: {fileID: 946955855}
   - component: {fileID: 946955854}
+  - component: {fileID: 946955858}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -1971,6 +2044,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &946955858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 946955853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa7b89c8319673341a8e21988041c3d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orderGenerator: {fileID: 665546478}
+  orderUIPrefab: {fileID: 4216563180895386237, guid: 4e54fc43b16f2ab438ddd3ef69208d85, type: 3}
 --- !u!1 &956996452
 GameObject:
   m_ObjectHideFlags: 0
@@ -2069,6 +2156,8 @@ MonoBehaviour:
   milkPoured: 0
   teaPoured: 0
   milkyTea: {fileID: 0}
+  teaType: 
+  toppings: []
 --- !u!1 &986323484
 GameObject:
   m_ObjectHideFlags: 0
@@ -3204,6 +3293,7 @@ GameObject:
   - component: {fileID: 1710472907}
   - component: {fileID: 1710472906}
   - component: {fileID: 1710472908}
+  - component: {fileID: 1710472909}
   m_Layer: 0
   m_Name: BrownTea
   m_TagString: Grabbable
@@ -3290,6 +3380,19 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &1710472909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1710472904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4233aa4b766e95489fd122de4836ca7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  customTag: Oolong
 --- !u!1 &1755241557
 GameObject:
   m_ObjectHideFlags: 0

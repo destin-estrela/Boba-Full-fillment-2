@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tags : MonoBehaviour
+public class Tea : MonoBehaviour
 {
-    public string customTag;
     // Start is called before the first frame update
     void Start()
     {
