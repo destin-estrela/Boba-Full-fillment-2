@@ -13,6 +13,9 @@ TagManager:
   - Submission
   - IceRefill
   - IceCube
+  - Stove
+  - Chicken
+  - Pan
   layers:
   - Default
   - TransparentFX
