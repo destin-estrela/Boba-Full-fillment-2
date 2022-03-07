@@ -295,7 +295,6 @@ MonoBehaviour:
   orderNumberText: {fileID: 845340132211425848}
   orderDescriptionText: {fileID: 5661350640325627631}
   timeLimitSlider: {fileID: 8582086344586323465}
-  timeRemaining: 0
 --- !u!1 &4691739262014034209
 GameObject:
   m_ObjectHideFlags: 0

@@ -45,7 +45,7 @@ public class OrderGenerator : MonoBehaviour
 
     void CreateOrder()
     {
-        if(Random.value > .33f)
+        if(Random.value > .33f || foodItems.Length == 0)
         {
             CreateDrinkOrder();
         }
@@ -110,11 +110,13 @@ public abstract class Order
     public float timeRemaining;
     public string displayName;
     public int value;
-
+    public static int minOrderTimer = 60;
+    public static int maxOrderTimer = 120;
     public Order(int orderId, int value)
     {
+        
         // determine random time limit 
-        timeLimit = Random.Range(30, 60);
+        timeLimit = Random.Range(minOrderTimer, maxOrderTimer);
         timeRemaining = timeLimit;
         this.orderId = orderId;
         this.value = value; 
