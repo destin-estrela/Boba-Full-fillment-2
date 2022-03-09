@@ -8,6 +8,9 @@ public class IceScooper : MonoBehaviour
     public int activeIceCubes;
     public GameObject iceCube;
     public Transform iceSpawnPoint;
+
+    public AudioSource scoopingIce;
+    public AudioSource dispensingIce;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +35,10 @@ public class IceScooper : MonoBehaviour
 
     public void FillScooper()
     {
+        if(activeIceCubes < iceCubes.Length)
+        {
+            scoopingIce.Play();
+        }
         activeIceCubes = iceCubes.Length;
     }
 
@@ -47,6 +54,7 @@ public class IceScooper : MonoBehaviour
     {
         if(activeIceCubes>=1)
         {
+            dispensingIce.Play();
             activeIceCubes -= 1;
             Instantiate(iceCube, iceSpawnPoint.position, transform.rotation);
         }

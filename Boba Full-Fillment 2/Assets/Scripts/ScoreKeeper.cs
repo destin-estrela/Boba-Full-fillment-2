@@ -16,6 +16,9 @@ public class ScoreKeeper : MonoBehaviour
     public TextMeshProUGUI badReviewsText;
     public TextMeshProUGUI cashGoalText;
     OrderGenerator orderGenerator;
+
+    public AudioSource timeRunningOutSound;
+    public AudioSource orderFailedSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +33,13 @@ public class ScoreKeeper : MonoBehaviour
         {
             if (order.timeRemaining <= 0f)
             {
+                orderFailedSound.Play();
                 badReviews += 1;
+            }
+            else if (order.timeRemaining < 9.874f && !timeRunningOutSound.isPlaying)  // length of time running out sound
+            {
+                timeRunningOutSound.time = (9.874f - order.timeRemaining);
+                timeRunningOutSound.Play();
             }
         }
         orderGenerator.activeOrders.RemoveAll(o => o.timeRemaining <= 0f);

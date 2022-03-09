@@ -20,6 +20,8 @@ public class OrderGenerator : MonoBehaviour
     int currOrderId = 0;
 
     public List<Order> activeOrders;
+    public AudioSource newOrderSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +36,7 @@ public class OrderGenerator : MonoBehaviour
         if(currTime <= 0 && activeOrders.Count < MaxOrderItems)
         {
             currTime = timeBetweenCustomerOrders;
+            newOrderSound.Play();
             CreateOrder();
         }
 

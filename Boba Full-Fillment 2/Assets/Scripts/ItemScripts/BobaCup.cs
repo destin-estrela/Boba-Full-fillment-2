@@ -18,7 +18,11 @@ public class BobaCup : MonoBehaviour
     public string teaType;
     public string toppingType = ""; // empty string denotes no toppingS
     public int sweetness = 0;
-    public int iceLevel = 0; 
+    public int iceLevel = 0;
+
+    public AudioSource pouringSound;
+    public AudioSource strawSound;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -60,6 +64,7 @@ public class BobaCup : MonoBehaviour
     {
         if (other.tag == "MilkFlow")
         {
+            pouringSound.Play();
             tea.SetActive(true);
             milkPoured = true;
             if (!teaPoured)
@@ -77,6 +82,7 @@ public class BobaCup : MonoBehaviour
     {
         if (other.tag == "Tea")
         {
+            pouringSound.Play();
             tea.SetActive(true);
             teaPoured = true;
 
@@ -100,12 +106,13 @@ public class BobaCup : MonoBehaviour
         {
             if (collisionObj.GetComponent<Topping>() != null && !topping.activeInHierarchy) {
                 
-               toppingType = collision.gameObject.GetComponent<DetailedTag>().customTag;
+                toppingType = collision.gameObject.GetComponent<DetailedTag>().customTag;
                 TransferMaterialToCup(collisionObj, topping);
             }
 
             if (collisionObj.GetComponent<Straw>() != null && !straw.activeInHierarchy && tea.activeInHierarchy)
             {
+                strawSound.Play();
                 TransferMaterialToCup(collisionObj, straw);
             }
         }

@@ -11,6 +11,7 @@ public class FulfillmentBox : MonoBehaviour
     public TextMeshProUGUI orderNumberText;
     OrderGenerator orderGenerator;
     int currOrderIndex;
+    public AudioSource successSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -40,14 +41,20 @@ public class FulfillmentBox : MonoBehaviour
         return false; 
     }
 
+    void OrderSuccess(GameObject orderGO, Order currentOrder)
+    {
+        scoreKeeper.cashEarned += currentOrder.value;
+        orderGenerator.activeOrders.RemoveAt(currOrderIndex);
+        Destroy(orderGO);
+        successSound.Play();
+        Debug.Log("Order successfully fulfilled!");
+    }
+
     internal void SubmitOrder(BobaCup bobaCup)
     {
        if(DrinkOrderIsCorrect(bobaCup, currentOrder))
         {
-            scoreKeeper.cashEarned += currentOrder.value;
-            orderGenerator.activeOrders.RemoveAt(currOrderIndex);
-            Destroy(bobaCup.gameObject);
-            Debug.Log("Order successfully fulfilled!");
+            OrderSuccess(bobaCup.gameObject, currentOrder);
         }
        else
         {

@@ -7,7 +7,7 @@ public class StoveTop : MonoBehaviour
     // Start is called before the first frame update
 
     public bool on = false;
-
+    public AudioSource stoveSound;
     void Start()
     {
         
@@ -16,12 +16,20 @@ public class StoveTop : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+     
     }
 
     public void buttonClicked()
     {
         on = !on;
+        if(on)
+        {
+            stoveSound.Play();
+        }
+        else
+        {
+            stoveSound.Stop();
+        }
     }
     //change color when on
 }

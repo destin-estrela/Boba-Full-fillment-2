@@ -10,11 +10,21 @@ public class Grabbing : MonoBehaviour
     private RaycastHit hit;
     GameObject hitObj = null;
     public Transform grabPoint;
+    public AudioSource grabSound;
+
+    private bool canClickButton = true;
 
     // Start is called before the first frame update
     void Start()
     {
         
+    }
+
+    private IEnumerator ButtonClickCooldown()
+    {
+        canClickButton = false;
+        yield return new WaitForSeconds(1);
+        canClickButton = true;
     }
 
     // Update is called once per frame
@@ -31,9 +41,12 @@ public class Grabbing : MonoBehaviour
                     hitObj = hit.collider.gameObject;
                     hitObj.GetComponent<Rigidbody>().isKinematic = true;
                     grabObj = true;
+                    grabSound.time = .19f;
+                    grabSound.Play();
                 }
-                if(!grabObj && hitObjectTransform.tag == "Clickable")
+                if(!grabObj && canClickButton && hitObjectTransform.tag == "Clickable")
                 {
+                    StartCoroutine(ButtonClickCooldown());
                     hitObjectTransform.gameObject.GetComponent<WorldButton>().OnClick();
                 }
             }

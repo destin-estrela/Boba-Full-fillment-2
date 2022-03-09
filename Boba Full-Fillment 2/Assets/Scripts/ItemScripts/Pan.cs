@@ -17,6 +17,10 @@ public class Pan : MonoBehaviour
                 Debug.Log("PanTouchingStove");
                 isHot = true;
             }
+            else
+            {
+                isHot = false; 
+            }
       
         }
     }

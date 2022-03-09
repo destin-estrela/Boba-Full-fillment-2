@@ -8,6 +8,7 @@ public class WorldButton : MonoBehaviour
 
     public UnityEvent unityEvent;
     public Animation buttonClickAnimation;
+    public AudioSource buttonSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +19,7 @@ public class WorldButton : MonoBehaviour
     {
         if(buttonClickAnimation != null)
         {
+            buttonSound.Play();
             buttonClickAnimation.Play();
         }
         unityEvent.Invoke(); 

@@ -8,6 +8,7 @@ public class chicken : MonoBehaviour
     public Material uncooked;
     public Material cooked;
     public Material burnt;
+    public AudioSource cookingSound;
 
     //public GameObject tea;
 
@@ -25,6 +26,10 @@ public class chicken : MonoBehaviour
             var chickenTouch = collisionObj.GetComponent<Pan>().isHot;
             if (chickenTouch == true)
             {
+                if(!cookingSound.isPlaying)
+                {
+                    cookingSound.Play();
+                }
                 elapsedTime += Time.deltaTime;
                 if (elapsedTime >= cookTime)
                 {
@@ -38,7 +43,16 @@ public class chicken : MonoBehaviour
                     GetComponent<MeshRenderer>().material = burnt;
                 }
             }
+            else
+            {
+                cookingSound.Stop();
+            }
         }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        cookingSound.Stop();
     }
 
     void Start()
