@@ -8,11 +8,15 @@ public class WorldButton : MonoBehaviour
 
     public UnityEvent unityEvent;
     public Animation buttonClickAnimation;
+    public Animator buttonClickAnimator;
     public AudioSource buttonSound;
     // Start is called before the first frame update
     void Start()
     {
-        
+        if(buttonClickAnimator)
+        {
+            buttonClickAnimator.StopPlayback();
+        }
     }
 
     public void OnClick() 
@@ -21,6 +25,11 @@ public class WorldButton : MonoBehaviour
         {
             buttonSound.Play();
             buttonClickAnimation.Play();
+        }
+        if(buttonClickAnimator!= null)
+        {
+            buttonSound.Play();
+            buttonClickAnimator.Play("Base Layer.pumping_syrup", 0, 0f);
         }
         unityEvent.Invoke(); 
     }

@@ -15,6 +15,7 @@ public class FulfillmentBox : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        successSound = GameObject.Find("SuccessSound").GetComponent<AudioSource>();
         scoreKeeper = FindObjectOfType<ScoreKeeper>();
         orderGenerator = FindObjectOfType<OrderGenerator>();
     }
@@ -43,10 +44,10 @@ public class FulfillmentBox : MonoBehaviour
 
     void OrderSuccess(GameObject orderGO, Order currentOrder)
     {
+        successSound.Play();
         scoreKeeper.cashEarned += currentOrder.value;
         orderGenerator.activeOrders.RemoveAt(currOrderIndex);
         Destroy(orderGO);
-        successSound.Play();
         Debug.Log("Order successfully fulfilled!");
     }
 

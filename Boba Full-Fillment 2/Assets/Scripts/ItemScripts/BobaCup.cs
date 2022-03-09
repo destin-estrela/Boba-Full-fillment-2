@@ -19,9 +19,11 @@ public class BobaCup : MonoBehaviour
     public string toppingType = ""; // empty string denotes no toppingS
     public int sweetness = 0;
     public int iceLevel = 0;
-
+    int maxSweetness = 4;
     public AudioSource pouringSound;
     public AudioSource strawSound;
+    public ParticleSystem syrupAddedEffect;
+    public ParticleSystem iceAddedEffect;
     
     // Start is called before the first frame update
     void Start()
@@ -40,12 +42,23 @@ public class BobaCup : MonoBehaviour
         HandleTea(other);
         HandleSubmission(other);
         HandleIce(other);
+        HandleSugar(other);
+    }
+
+    public void HandleSugar(Collider other)
+    {
+        if (other.tag == "Sugar" && sweetness < maxSweetness)
+        {
+            sweetness += 1;
+            syrupAddedEffect.Play();
+        }
     }
 
     public void HandleIce(Collider other)
     {
         if (other.tag == "IceCube" && iceLevel < ice.Length)
         {
+            iceAddedEffect.Play();
             ice[iceLevel].SetActive(true);
             iceLevel++;
             Destroy(other.gameObject);

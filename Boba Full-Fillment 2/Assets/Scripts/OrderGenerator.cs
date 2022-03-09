@@ -101,7 +101,7 @@ public class DrinkOrder : Order
 
         // randomly determine ice and sweetness
         ice = Random.Range(0, 5);
-        sweetness = Random.Range(0, 1);
+        sweetness = Random.Range(0, 5);
         this.displayName = $"{tea}{(withMilk ? " Milk" : "")} Tea{(topping != "" ? " with " : "")}{topping}, {ice * 25}% Ice, {sweetness * 25}% Sweetness";
     }
 }
