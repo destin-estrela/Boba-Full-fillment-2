@@ -664,7 +664,7 @@ GameObject:
   - component: {fileID: 4315100849070984838}
   - component: {fileID: 4237761497481703561}
   m_Layer: 0
-  m_Name: BobaCup (1)
+  m_Name: BobaCup
   m_TagString: Grabbable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

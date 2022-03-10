@@ -5,42 +5,75 @@ using UnityEngine;
 public class Dispenser : MonoBehaviour
 {
     [SerializeField] GameObject dispensing;
-    [SerializeField] int numItems;
-    private GameObject[] items;
+    private List<GameObject> items;
 
-    [SerializeField] float spacing;
     [SerializeField] Transform spawnPoint;
+    [SerializeField] int maxNum;
+    private int inTrigger;
+    private bool making;
 
     // Start is called before the first frame update
     void Start()
     {
-        items = new GameObject[numItems];
-
-        for(int i=0; i< numItems; i++)
-        {
-            makeItem(i);
-        }
+        items = new List<GameObject>();
+        makeItem();
     }
 
     // Update is called once per frame
     void Update()
     {
-        for (int i = 0; i < numItems; i++)
+        for(int i=0; i<items.Count; i++)
         {
             if(items[i] == null)
             {
-                makeItem(i);
+                items.RemoveAt(i);
             }
+        }
+
+        // Debug.Log(gameObject.name + " num: " + inTrigger.ToString());
+
+        if (inTrigger == 0 && making == false)
+        {
+            makeItem();
         }
     }
 
-    private void makeItem(int i)
+    private void makeItem()
     {
-        items[i] = Instantiate(dispensing, new Vector3(0, 0, 0), Quaternion.Euler(0, 0, 90));
-        items[i].transform.parent = transform;
+        making = true;
+        int i = items.Count;
 
-        Vector3 itemPos = new Vector3(spawnPoint.position.x, spawnPoint.position.y, spawnPoint.position.z);
-        itemPos += new Vector3(dispensing.transform.localScale.x, 0, spacing * i);
-        items[i].transform.position = itemPos;
+        if (i < maxNum && inTrigger == 0)
+        {
+            items.Add(Instantiate(dispensing, new Vector3(0, 0, 0), Quaternion.Euler(0, 0, 90)));
+            items[i].transform.parent = transform;
+            items[i].transform.position = spawnPoint.position;
+        }
+        // Vector3 itemPos = new Vector3(spawnPoint.position.x, spawnPoint.position.y, spawnPoint.position.z);
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (gameObject.name.Contains("Straw")  && other.gameObject.GetComponent<Straw>() != null)
+        {
+            inTrigger--;
+        }
+        else if(gameObject.name.Contains("Cup") && other.gameObject.GetComponent<BobaCup>() != null)
+        {
+            inTrigger--;
+        }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (gameObject.name.Contains("Straw") && other.gameObject.GetComponent<Straw>() != null)
+        {
+            inTrigger++;
+        }
+        else if (gameObject.name.Contains("Cup") && other.gameObject.GetComponent<BobaCup>() != null)
+        {
+            inTrigger++;
+        }
+        if (making) making = false;
     }
 }
