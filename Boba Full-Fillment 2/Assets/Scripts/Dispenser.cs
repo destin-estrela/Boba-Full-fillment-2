@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Dispenser : MonoBehaviour
 {
@@ -12,11 +13,39 @@ public class Dispenser : MonoBehaviour
     private int inTrigger;
     private bool making;
 
+    private string dispType;
+    private Dictionary<string, float> rotY = new Dictionary<string, float>();
+    private Dictionary<string, float> rotZ = new Dictionary<string, float>();
+
     // Start is called before the first frame update
     void Start()
     {
+        rotY.Add("Straw", 90);
+        rotY.Add("Tapioca", 90);
+
+        rotZ.Add("BobaCup", 90);
+        rotZ.Add("Straw", 90);
+
+        string[] types = { "BobaCup", "Straw", "Tapioca", "LJelly", "CJelly", "MJelly", "AJelly", "SJelly"};
+        foreach (string type in types)
+        {
+            if(dispensing.GetComponent(type) != null)
+            {
+                dispType = type;
+            }
+
+            if (!rotY.ContainsKey(type))
+            {
+                rotY.Add(type, 0);
+            }
+
+            if (!rotZ.ContainsKey(type))
+            {
+                rotZ.Add(type, 0);
+            }
+        }
+
         items = new List<GameObject>();
-        makeItem();
     }
 
     // Update is called once per frame
@@ -45,7 +74,7 @@ public class Dispenser : MonoBehaviour
 
         if (i < maxNum && inTrigger == 0)
         {
-            items.Add(Instantiate(dispensing, new Vector3(0, 0, 0), Quaternion.Euler(0, 0, 90)));
+            items.Add(Instantiate(dispensing, new Vector3(0, 0, 0), Quaternion.Euler(0, rotY[dispType], rotZ[dispType])));
             items[i].transform.parent = transform;
             items[i].transform.position = spawnPoint.position;
         }
@@ -54,11 +83,7 @@ public class Dispenser : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
-        if (gameObject.name.Contains("Straw")  && other.gameObject.GetComponent<Straw>() != null)
-        {
-            inTrigger--;
-        }
-        else if(gameObject.name.Contains("Cup") && other.gameObject.GetComponent<BobaCup>() != null)
+        if (other.gameObject.GetComponent(dispType) != null)
         {
             inTrigger--;
         }
@@ -66,11 +91,7 @@ public class Dispenser : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (gameObject.name.Contains("Straw") && other.gameObject.GetComponent<Straw>() != null)
-        {
-            inTrigger++;
-        }
-        else if (gameObject.name.Contains("Cup") && other.gameObject.GetComponent<BobaCup>() != null)
+        if (other.gameObject.GetComponent(dispType) != null)
         {
             inTrigger++;
         }
