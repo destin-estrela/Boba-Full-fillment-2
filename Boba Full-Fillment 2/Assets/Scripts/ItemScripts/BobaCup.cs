@@ -24,6 +24,8 @@ public class BobaCup : MonoBehaviour
     public AudioSource strawSound;
     public ParticleSystem syrupAddedEffect;
     public ParticleSystem iceAddedEffect;
+
+    public bool canTake = true;
     
     // Start is called before the first frame update
     void Start()
@@ -115,18 +117,20 @@ public class BobaCup : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         GameObject collisionObj = collision.gameObject;
-        if (collisionObj.tag == "Grabbable")
+        if (collisionObj.tag == "Grabbable" && canTake)
         {
             if (collisionObj.GetComponent<Topping>() != null && !topping.activeInHierarchy) {
                 
                 toppingType = collision.gameObject.GetComponent<DetailedTag>().customTag;
                 TransferMaterialToCup(collisionObj, topping);
+                Destroy(collision.gameObject);
             }
 
             if (collisionObj.GetComponent<Straw>() != null && !straw.activeInHierarchy && tea.activeInHierarchy)
             {
                 strawSound.Play();
                 TransferMaterialToCup(collisionObj, straw);
+                Destroy(collision.gameObject);
             }
         }
     }

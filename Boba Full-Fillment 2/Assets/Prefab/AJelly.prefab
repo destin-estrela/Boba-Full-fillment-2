@@ -12,9 +12,11 @@ GameObject:
   - component: {fileID: 1307288697859968140}
   - component: {fileID: 1307288697859968143}
   - component: {fileID: 1307288697859968142}
+  - component: {fileID: 6596871840715198127}
   - component: {fileID: 6649365411433915690}
-  - component: {fileID: 6832320929386689373}
   - component: {fileID: 7058987566916176258}
+  - component: {fileID: 5574170500505158399}
+  - component: {fileID: 6832320929386689373}
   m_Layer: 0
   m_Name: AJelly
   m_TagString: Grabbable
@@ -63,7 +65,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a3f39c468f16f444db18422a0e5d32aa, type: 2}
+  - {fileID: 2100000, guid: 21ecb108543bfd944ab85491a1943bfa, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -98,6 +100,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6596871840715198127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1307288697859968136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93da0650f6a80f845bcb6d3b927b1993, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &6649365411433915690
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110,6 +124,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbc34e00387585542b8f03ba48cd127a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7058987566916176258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1307288697859968136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70d31c4487cc81c4faa317a410631ddb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5574170500505158399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1307288697859968136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4233aa4b766e95489fd122de4836ca7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  customTag: Apple Jelly
 --- !u!54 &6832320929386689373
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -126,15 +165,3 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &7058987566916176258
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1307288697859968136}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70d31c4487cc81c4faa317a410631ddb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

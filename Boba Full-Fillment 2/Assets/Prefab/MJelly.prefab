@@ -12,9 +12,11 @@ GameObject:
   - component: {fileID: 3676122381620951331}
   - component: {fileID: 3676122381620951328}
   - component: {fileID: 3676122381620951329}
-  - component: {fileID: 9036212532321915013}
   - component: {fileID: 9219183305947989746}
+  - component: {fileID: 9036212532321915013}
   - component: {fileID: 2159325978007861182}
+  - component: {fileID: 4263691462909199840}
+  - component: {fileID: 3556879360224367402}
   m_Layer: 0
   m_Name: MJelly
   m_TagString: Grabbable
@@ -98,18 +100,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &9036212532321915013
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3676122381620951335}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbc34e00387585542b8f03ba48cd127a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &9219183305947989746
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -126,6 +116,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &9036212532321915013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3676122381620951335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbc34e00387585542b8f03ba48cd127a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2159325978007861182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,3 +140,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 278bca4a94115704aa20dbf1658dba77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4263691462909199840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3676122381620951335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93da0650f6a80f845bcb6d3b927b1993, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3556879360224367402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3676122381620951335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4233aa4b766e95489fd122de4836ca7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  customTag: Mango Jelly

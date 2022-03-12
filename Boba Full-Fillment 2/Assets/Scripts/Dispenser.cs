@@ -59,6 +59,12 @@ public class Dispenser : MonoBehaviour
             }
         }
 
+        if(items.Count == 0)
+        {
+            inTrigger = 0;
+            making = false;
+        }
+
         // Debug.Log(gameObject.name + " num: " + inTrigger.ToString());
 
         if (inTrigger == 0 && making == false)
@@ -87,6 +93,11 @@ public class Dispenser : MonoBehaviour
         {
             inTrigger--;
         }
+
+        if (other.gameObject.GetComponent<BobaCup>() != null)
+        {
+            other.gameObject.GetComponent<BobaCup>().canTake = true;
+        }
     }
 
     void OnTriggerEnter(Collider other)
@@ -95,6 +106,12 @@ public class Dispenser : MonoBehaviour
         {
             inTrigger++;
         }
+
         if (making) making = false;
+
+        if(other.gameObject.GetComponent<BobaCup>() != null)
+        {
+            other.gameObject.GetComponent<BobaCup>().canTake = false;
+        }
     }
 }

@@ -12,9 +12,11 @@ GameObject:
   - component: {fileID: 2124823583345114167}
   - component: {fileID: 2124823583345114164}
   - component: {fileID: 2124823583345114165}
-  - component: {fileID: 5989723126520501649}
   - component: {fileID: 5875447374053409766}
+  - component: {fileID: 5989723126520501649}
   - component: {fileID: 7723935079290067147}
+  - component: {fileID: 4055817489604649511}
+  - component: {fileID: 4190143086185223925}
   m_Layer: 0
   m_Name: CJelly
   m_TagString: Grabbable
@@ -98,18 +100,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5989723126520501649
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2124823583345114163}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbc34e00387585542b8f03ba48cd127a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &5875447374053409766
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -126,6 +116,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &5989723126520501649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2124823583345114163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbc34e00387585542b8f03ba48cd127a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &7723935079290067147
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,5 +138,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7cc3d4e5590133a4e8a3f943894957d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4055817489604649511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2124823583345114163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4233aa4b766e95489fd122de4836ca7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  customTag: Coffee Jelly
+--- !u!114 &4190143086185223925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2124823583345114163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93da0650f6a80f845bcb6d3b927b1993, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

@@ -12,9 +12,11 @@ GameObject:
   - component: {fileID: 8284995517447027021}
   - component: {fileID: 8284995517447027022}
   - component: {fileID: 8284995517447027023}
-  - component: {fileID: 4366540274579017963}
   - component: {fileID: 4471823800022779548}
+  - component: {fileID: 4366540274579017963}
   - component: {fileID: 9211127281254311778}
+  - component: {fileID: 9069242635428557746}
+  - component: {fileID: 8617821565048290149}
   m_Layer: 0
   m_Name: SJelly
   m_TagString: Grabbable
@@ -98,18 +100,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4366540274579017963
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8284995517447027017}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbc34e00387585542b8f03ba48cd127a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &4471823800022779548
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -126,6 +116,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &4366540274579017963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8284995517447027017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbc34e00387585542b8f03ba48cd127a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &9211127281254311778
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,3 +140,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11c2b3100c0f5f349bb4d899753728a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &9069242635428557746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8284995517447027017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93da0650f6a80f845bcb6d3b927b1993, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8617821565048290149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8284995517447027017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4233aa4b766e95489fd122de4836ca7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  customTag: Strawberry Jelly

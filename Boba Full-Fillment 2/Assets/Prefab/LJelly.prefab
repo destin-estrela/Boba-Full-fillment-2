@@ -12,9 +12,11 @@ GameObject:
   - component: {fileID: 1812200069526821238}
   - component: {fileID: 1812200069526821237}
   - component: {fileID: 1812200069526821236}
+  - component: {fileID: 6184306331836049063}
   - component: {fileID: 6288464223669301456}
   - component: {fileID: 5320126444687077620}
-  - component: {fileID: 6184306331836049063}
+  - component: {fileID: 4531730334505967418}
+  - component: {fileID: 948726575364425329}
   m_Layer: 0
   m_Name: LJelly
   m_TagString: Grabbable
@@ -98,6 +100,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &6184306331836049063
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1812200069526821234}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!114 &6288464223669301456
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,19 +140,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a89cc7b61c4d11c47b6a28b5a7faadec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!54 &6184306331836049063
-Rigidbody:
+--- !u!114 &4531730334505967418
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1812200069526821234}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93da0650f6a80f845bcb6d3b927b1993, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &948726575364425329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1812200069526821234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4233aa4b766e95489fd122de4836ca7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  customTag: Lychee Jelly

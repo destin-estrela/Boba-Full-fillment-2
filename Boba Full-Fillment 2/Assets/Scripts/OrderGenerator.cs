@@ -113,8 +113,8 @@ public abstract class Order
     public float timeRemaining;
     public string displayName;
     public int value;
-    public static int minOrderTimer = 60;
-    public static int maxOrderTimer = 120;
+    public static int minOrderTimer = 120;
+    public static int maxOrderTimer = 180;
     public Order(int orderId, int value)
     {
         
