@@ -767,6 +767,7 @@ MonoBehaviour:
   strawSound: {fileID: 4237761497481703561}
   syrupAddedEffect: {fileID: 7060061363161138856}
   iceAddedEffect: {fileID: 2726005719205535435}
+  canTake: 1
 --- !u!82 &4315100849070984838
 AudioSource:
   m_ObjectHideFlags: 0

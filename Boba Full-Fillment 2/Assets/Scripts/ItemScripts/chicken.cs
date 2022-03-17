@@ -10,6 +10,8 @@ public class chicken : MonoBehaviour
     public Material burnt;
     public AudioSource cookingSound;
 
+    public bool ready = false;
+
     //public GameObject tea;
 
     public float cookTime;
@@ -35,12 +37,14 @@ public class chicken : MonoBehaviour
                 {
                     //change color of chicken
                     GetComponent<MeshRenderer>().material = cooked;
+                    ready = true;
 
 
                 }
                 if (elapsedTime >= burntTime)
                 {
                     GetComponent<MeshRenderer>().material = burnt;
+                    ready = false;
                 }
             }
             else

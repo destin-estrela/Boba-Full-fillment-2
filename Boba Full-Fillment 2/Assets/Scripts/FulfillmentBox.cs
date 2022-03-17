@@ -42,6 +42,18 @@ public class FulfillmentBox : MonoBehaviour
         return false; 
     }
 
+    bool ChickenOrderIsCorrect(ChickenBowl cb, Order order)
+    {
+        if (order is FoodOrder)
+        {
+            FoodOrder chickenOrder = (FoodOrder)order;
+            return (cb.bowlready == true);
+
+
+        }
+        return false;
+    }
+
     void OrderSuccess(GameObject orderGO, Order currentOrder)
     {
         successSound.Play();
@@ -58,6 +70,18 @@ public class FulfillmentBox : MonoBehaviour
             OrderSuccess(bobaCup.gameObject, currentOrder);
         }
        else
+        {
+            Debug.Log("Incorrect Order!");
+        }
+    }
+
+    internal void SubmitOrder(ChickenBowl chickenBowl)
+    {
+        if (ChickenOrderIsCorrect(chickenBowl, currentOrder))
+        {
+            OrderSuccess(chickenBowl.gameObject, currentOrder);
+        }
+        else
         {
             Debug.Log("Incorrect Order!");
         }
