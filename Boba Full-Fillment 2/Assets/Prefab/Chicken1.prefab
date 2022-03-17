@@ -114,8 +114,9 @@ MonoBehaviour:
   cooked: {fileID: 2100000, guid: 1c3e998bb74957247acb64d740bfee1f, type: 2}
   burnt: {fileID: 2100000, guid: 843a906eff671af45a7097764508eab4, type: 2}
   cookingSound: {fileID: 2025493841469538869}
-  cookTime: 7
-  burntTime: 15
+  ready: 0
+  cookTime: 45
+  burntTime: 120
 --- !u!54 &6343374821833381299
 Rigidbody:
   m_ObjectHideFlags: 0

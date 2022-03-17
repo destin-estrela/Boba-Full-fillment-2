@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 60d6f9920e41cde47869a20755db8672, type: 2}
+  - {fileID: 2100000, guid: 1c3e998bb74957247acb64d740bfee1f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -323,6 +323,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chicken: {fileID: 3860218805846324764}
+  bowlready: 0
 --- !u!1 &4916165532349879262
 GameObject:
   m_ObjectHideFlags: 0

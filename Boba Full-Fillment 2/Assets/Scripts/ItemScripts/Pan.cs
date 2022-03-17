@@ -14,7 +14,6 @@ public class Pan : MonoBehaviour
             var turnedOn = collisionObj.GetComponent<StoveTop>().on;
             if (turnedOn == true)
             {
-                Debug.Log("PanTouchingStove");
                 isHot = true;
             }
             else

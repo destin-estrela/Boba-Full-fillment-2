@@ -39,6 +39,7 @@ public class ChickenBowl : MonoBehaviour
             {
                 chicken.SetActive(true);
                 Destroy(collision.gameObject);
+                chicken.GetComponent<MeshRenderer>().material = collisionObj.GetComponent<MeshRenderer>().material;
                 if (collisionObj.GetComponent<chicken>().ready == true)
                 {
                     bowlready = true;
